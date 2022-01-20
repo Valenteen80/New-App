@@ -1,0 +1,28 @@
+<ul>
+  <li *ngFor="let article of articles">
+    <H2>{{ article.title }}</H2>
+    <div>
+      <p>{{ article.headline }}</p>
+      <button>читать статью полностью>></button>
+      <P>{{ article.body }}</P>
+      <button>скрыть статью</button>
+      <img src="{{ article.img }}" alt="фото" />
+      <span>{{ article.author }}</span>
+      <button>Нравится</button>
+      <div class="line"></div>
+    </div>
+  </li>
+</ul>
+<div class="search">
+  <form class="search-form" action="">
+    <label class="search__label">
+      Поиск по сайту
+      <input
+        class="search__input-text"
+        type="text"
+        placeholder="введите искомое"
+      />
+    </label>
+    <input class="search__input-submit article-btn" type="submit" />
+  </form>
+</div>

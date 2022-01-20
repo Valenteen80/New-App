@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #c48207;
+  color: #532703;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.date {
+  display: block;
+  font-size: 2rem;
+}
+
+.line {
+  width: 100%;
+  height: 5px;
+  background-color: #c45c07;
+}
