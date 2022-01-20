@@ -1,28 +1,29 @@
-<ul>
+<ul class="article article__wrapper">
   <li *ngFor="let article of articles">
-    <H2>{{ article.title }}</H2>
-    <div>
-      <p>{{ article.headline }}</p>
-      <button>читать статью полностью>></button>
-      <P>{{ article.body }}</P>
-      <button>скрыть статью</button>
-      <img src="{{ article.img }}" alt="фото" />
-      <span>{{ article.author }}</span>
-      <button>Нравится</button>
-      <div class="line"></div>
+    <H2 class="article__header">{{ article.title }}</H2>
+
+    <p class="article__headline">
+      <strong>{{ article.headline }}</strong>
+      <button class="article__btn">
+        &gt;&gt;&gt;читать статью полностью&gt;&gt;&gt;
+      </button>
+    </p>
+
+    <P
+      >{{ article.body }}
+      <button class="article__btn">
+        &lt;&lt;&lt;скрыть статью&lt;&lt;&lt;
+      </button>
+    </P>
+    <div class="article__picture">
+      <img class="article__picture-img" src="{{ article.img }}" alt="фото" />
     </div>
+
+    <span>{{ article.author }}</span>
+    <button class="article-btn article-btn__wrapper article-btn--like">
+      Нравится
+    </button>
   </li>
 </ul>
-<div class="search">
-  <form class="search-form" action="">
-    <label class="search__label">
-      Поиск по сайту
-      <input
-        class="search__input-text"
-        type="text"
-        placeholder="введите искомое"
-      />
-    </label>
-    <input class="search__input-submit article-btn" type="submit" />
-  </form>
-</div>
+<app-form></app-form>
+<div class="line"></div>

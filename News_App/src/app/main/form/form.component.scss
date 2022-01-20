@@ -1,0 +1,34 @@
+.search-form {
+  font-size: 1.2rem;
+  margin: 20px 80px 20px 80px;
+}
+
+.article-btn {
+  border: 1px solid #c45c07;
+  background-color: #f8e0b9;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+}
+
+.article-btn:hover {
+  border: 1px solid #753705;
+  background-color: #fad291;
+  cursor: pointer;
+}
+
+.search__input-text {
+  font-family: Lato, sans-serif;
+  font-size: 13px;
+  color: red;
+  font-style: italic;
+  border-radius: 10px;
+  height: 26px;
+  border: 1px solid #c45c07;
+  background-color: #f8e0b9;
+}
+
+.search__input-text::placeholder {
+  color: red;
+  font-size: 1em;
+}
