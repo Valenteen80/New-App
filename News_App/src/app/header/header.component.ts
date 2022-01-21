@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = '“News App”';
-  date: Date = new Date(); // Получил объект даты
+  date: Date = new Date();
   dateRu: string = this.date.toLocaleDateString('ru', {
     year: 'numeric',
     month: 'long',
     day: '2-digit',
-  }); // сформатировал объект даты и  перевёл в строку
+  });
 
   constructor() {}
 

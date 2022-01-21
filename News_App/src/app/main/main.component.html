@@ -1,24 +1,15 @@
 <ul class="article article__wrapper">
-  <li *ngFor="let article of articles">
+  <li *ngFor="let article of articles" (click)="showArticle($event)">
     <H2 class="article__header">{{ article.title }}</H2>
 
     <p class="article__headline">
       <strong>{{ article.headline }}</strong>
-      <button class="article__btn">
-        &gt;&gt;&gt;читать статью полностью&gt;&gt;&gt;
-      </button>
     </p>
-
-    <P
-      >{{ article.body }}
-      <button class="article__btn">
-        &lt;&lt;&lt;скрыть статью&lt;&lt;&lt;
-      </button>
-    </P>
+    <button class="article__btn">читать статью полностью</button>
+    <P class="article__body">{{ article.body }} </P>
     <div class="article__picture">
       <img class="article__picture-img" src="{{ article.img }}" alt="фото" />
     </div>
-
     <span>{{ article.author }}</span>
     <button class="article-btn article-btn__wrapper article-btn--like">
       Нравится

@@ -4,10 +4,6 @@ export interface Article {
   body: string;
   img: string;
   author: string;
-  id?: number;
+  viewCounterArticle: number;
+  id: number;
 }
-
-// export interface Body {
-//   paragrapf: string;
-//   id?: number;
-// }
