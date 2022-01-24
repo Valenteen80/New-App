@@ -1,19 +1,28 @@
 <ul class="article article__wrapper">
-  <li *ngFor="let article of articles" (click)="showArticle($event)">
-    <H2 class="article__header">{{ article.title }}</H2>
+  <li *ngFor="let article of articles">
+    <h2 class="article__header">{{ article.title }}</h2>
 
     <p class="article__headline">
       <strong>{{ article.headline }}</strong>
     </p>
-    <button class="article__btn">читать статью полностью</button>
-    <P class="article__body">{{ article.body }} </P>
-    <div class="article__picture">
+    <button class="article__btn" (click)="toggleArticle(article)">
+      {{ article.buttonText }}
+    </button>
+    <p class="article__body" *ngIf="article.isVisible">{{ article.body }}</p>
+    <div
+      class="article__picture"
+      [ngClass]="{ 'article__picture--active': article.isVisible }"
+    >
       <img class="article__picture-img" src="{{ article.img }}" alt="фото" />
     </div>
-    <span>{{ article.author }}</span>
-    <button class="article-btn article-btn__wrapper article-btn--like">
-      Нравится
-    </button>
+    <div class="article_footer">
+      <span>{{ article.author }}</span>
+      <button class="article-btn article-btn__wrapper article-btn--like">
+        Нравится
+      </button>
+      <small>Понравилось:{{ article.viewCounterArticle }}</small>
+      <small>Просмотрено:{{ article.viewCounterArticle }}</small>
+    </div>
   </li>
 </ul>
 <app-form></app-form>

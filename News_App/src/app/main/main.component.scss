@@ -31,9 +31,9 @@
   cursor: pointer;
 }
 
-.article__body {
-  display: none;
-}
+// .article__body {
+//   display: none;
+// }
 
 .article-btn {
   border: 1px solid #c45c07;
@@ -56,10 +56,6 @@
   margin-right: 3px;
 }
 
-.article-btn__wrapper {
-  margin: 20px 20px 20px 20px;
-}
-
 .article__picture {
   width: 20%;
   display: flex;
@@ -69,6 +65,14 @@
 .article__picture-img {
   max-width: 70%;
   border: 3px solid #753705;
+}
+.article_footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.article_footer-wrapper {
+  margin: 20px 20px 20px 20px;
 }
 
 .line {
