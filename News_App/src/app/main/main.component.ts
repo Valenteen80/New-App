@@ -22,6 +22,13 @@ export class MainComponent implements OnInit {
     }
   }
 
+  /**
+   * name
+   */
+  public likeCounter(article: Article) {
+    article.likeCount++;
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

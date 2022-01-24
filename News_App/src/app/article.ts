@@ -7,6 +7,7 @@ export interface Article {
   img: string;
   author: string;
   viewCounterArticle: number;
+  likeCount: number;
   isVisible: boolean;
   buttonText: ButtonText;
   id: number;

@@ -17,6 +17,7 @@ export const ARTICLES: Article[] = [
     isVisible: false,
     buttonText: ButtonText.BUTTON_SHOW,
     viewCounterArticle: 0,
+    likeCount: 0,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const ARTICLES: Article[] = [
     isVisible: false,
     buttonText: ButtonText.BUTTON_SHOW,
     viewCounterArticle: 0,
+    likeCount: 0,
   },
   {
     id: 3,
@@ -41,5 +43,6 @@ export const ARTICLES: Article[] = [
     isVisible: false,
     buttonText: ButtonText.BUTTON_SHOW,
     viewCounterArticle: 0,
+    likeCount: 0,
   },
 ];
