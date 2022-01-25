@@ -6,8 +6,10 @@
         class="search__input-text"
         type="text"
         placeholder="Что ищите?..."
+        [(ngModel)]="search"
+        name="search"
+        (input)="outputEvent()"
       />
     </label>
-    <input class="search__input-submit article-btn" type="submit" />
   </form>
 </div>

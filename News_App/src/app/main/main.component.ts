@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Article } from '../article';
 import { ARTICLES, ButtonText } from '../article-list';
 
@@ -9,9 +9,8 @@ import { ARTICLES, ButtonText } from '../article-list';
 })
 export class MainComponent implements OnInit {
   @ViewChild('btnShow', { static: false }) btnShowRef: ElementRef;
-
   public articles = ARTICLES;
-
+  public search: string = '';
   public toggleArticle(article: Article) {
     article.isVisible = !article.isVisible;
     article.buttonText = article.isVisible
@@ -22,11 +21,11 @@ export class MainComponent implements OnInit {
     }
   }
 
-  /**
-   * name
-   */
   public likeCounter(article: Article) {
     article.likeCount++;
+  }
+  receptionEvent(search) {
+    this.search = search;
   }
 
   constructor() {}

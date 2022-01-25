@@ -1,10 +1,12 @@
+///main styling
+
 .article {
   font-size: 1.2rem;
   list-style: none;
 }
 
 .article__wrapper {
-  margin: 40px 40px 0 40px; //???
+  margin: 40px 40px 0 40px;
 }
 
 .article__header {
@@ -67,17 +69,18 @@
   border: 3px solid #753705;
 }
 .article_footer {
-  width: 50%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 .article_footer__wrap {
   margin-top: 20px;
 }
 
-.article_footer-wrapper {
-  margin: 20px 20px 20px 20px;
-}
+// .article_footer-wrapper {
+//   margin: 20px 20px 20px 20px;
+// }
 
 .line {
   width: 100%;
@@ -93,4 +96,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.article_footer__element {
+  margin: 20px 10px 0 10px;
 }

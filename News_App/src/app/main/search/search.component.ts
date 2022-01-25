@@ -1,0 +1,16 @@
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-form',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss'],
+})
+export class FormComponent {
+  public search: string = '';
+
+  @Output() public onAdd: EventEmitter<string> = new EventEmitter();
+
+  outputEvent() {
+    this.onAdd.emit(this.search);
+  }
+}

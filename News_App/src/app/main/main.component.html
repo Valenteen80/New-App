@@ -1,5 +1,7 @@
+<app-form (onAdd)="receptionEvent($event)"></app-form>
 <ul class="article article__wrapper">
-  <li *ngFor="let article of articles">
+  <li *ngFor="let article of articles | filter: search">
+    <!-- | filter: search -->
     <h2 class="article__header">{{ article.title }}</h2>
 
     <p class="article__headline">
@@ -13,20 +15,28 @@
       class="article__picture"
       [ngClass]="{ 'article__picture--active': article.isVisible }"
     >
-      <img class="article__picture-img" src="{{ article.img }}" alt="фото" />
+      <img class="article__picture-img" [src]="article.img" alt="фото" />
     </div>
+
     <div class="article_footer article_footer__wrap">
-      <span>{{ article.author }}</span>
-      <button
-        class="article-btn article-btn__wrapper article-btn--like"
-        (click)="likeCounter(article)"
-      >
-        Нравится
-      </button>
-      <small>Понравилось:{{ article.likeCount }}</small>
-      <small>Просмотрено:{{ article.viewCounterArticle }}</small>
+      <div>
+        <span class="article_footer__element">{{ article.author }}</span>
+        <button
+          class="article-btn article-btn__wrapper article-btn--like article_footer__element"
+          (click)="likeCounter(article)"
+        >
+          Нравится
+        </button>
+      </div>
+      <div>
+        <small class="article_footer__element"
+          >Понравилось:{{ article.likeCount }}</small
+        >
+        <small class="article_footer__element"
+          >Просмотрено:{{ article.viewCounterArticle }}</small
+        >
+      </div>
     </div>
   </li>
 </ul>
-<app-form></app-form>
 <div class="line"></div>
