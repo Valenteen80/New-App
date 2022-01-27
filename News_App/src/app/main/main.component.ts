@@ -1,14 +1,14 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Article } from '../article';
 import { ARTICLES, ButtonText } from '../article-list';
+import { LocalStorageService } from '../service/local-storage.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit {
-  @ViewChild('btnShow', { static: false }) btnShowRef: ElementRef;
+export class MainComponent {
   public articles = ARTICLES;
   public search: string = '';
   public toggleArticle(article: Article) {
@@ -21,14 +21,13 @@ export class MainComponent implements OnInit {
     }
   }
 
-  public likeCounter(article: Article) {
-    article.likeCount++;
+  public toggleLikeButton(article: Article) {
+    article.isLike = !article.isLike;
   }
-  receptionEvent(search) {
+
+  public receptionEvent(search) {
     this.search = search;
   }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(public localStorageServise: LocalStorageService) {}
 }

@@ -9,7 +9,6 @@ export class FilterPipe implements PipeTransform {
     if (!search.trim()) {
       return articles;
     }
-    // console.log(search);
     return articles.filter((article: Article) => {
       return (
         article.title.includes(search) ||
@@ -19,9 +18,3 @@ export class FilterPipe implements PipeTransform {
     });
   }
 }
-
-// (
-//   article.title.includes(search) ||
-//   article.headline.includes(search) ||
-//   article.body.includes(search)
-// );

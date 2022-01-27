@@ -5,16 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  title = '“News App”';
-  date: Date = new Date();
-  dateRu: string = this.date.toLocaleDateString('ru', {
+export class HeaderComponent {
+  public title = '“News App”';
+  private date: Date = new Date();
+  public dateRu: string = this.date.toLocaleDateString('ru', {
     year: 'numeric',
     month: 'long',
     day: '2-digit',
   });
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

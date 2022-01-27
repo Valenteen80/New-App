@@ -1,5 +1,4 @@
 import { ButtonText } from './article-list';
-
 export interface Article {
   title: string;
   headline: string;
@@ -7,7 +6,7 @@ export interface Article {
   img: string;
   author: string;
   viewCounterArticle: number;
-  likeCount: number;
+  isLike: boolean;
   isVisible: boolean;
   buttonText: ButtonText;
   id: number;
