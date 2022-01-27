@@ -5,6 +5,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class LocalStorageService {
   public views: string = '';
+
   private counterLoad() {
     let date = new Date().toLocaleDateString();
     let viewsQuntity =
@@ -12,13 +13,13 @@ export class LocalStorageService {
     if (viewsQuntity.hasOwnProperty(date)) {
       viewsQuntity[date]++;
     } else {
-      localStorage.clear();
+      viewsQuntity = {};
+      // localStorage.clear();
       viewsQuntity[date] = 1;
     }
     localStorage.setItem('localStorageName', JSON.stringify(viewsQuntity));
     this.views = viewsQuntity[date];
   }
-
   constructor() {
     this.counterLoad();
   }
