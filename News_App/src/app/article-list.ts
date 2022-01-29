@@ -1,4 +1,4 @@
-import { Article } from './article';
+import { Article } from './interfaces/article';
 
 export enum ButtonText {
   BUTTON_SHOW = 'читать статью полностью',

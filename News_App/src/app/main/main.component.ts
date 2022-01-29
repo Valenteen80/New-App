@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Article } from '../article';
+import { Article } from '../interfaces/article';
 import { ARTICLES, ButtonText } from '../article-list';
-import { LocalStorageService } from '../service/local-storage.service';
+import { Visitors } from '../interfaces/visitors';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +9,18 @@ import { LocalStorageService } from '../service/local-storage.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
+  @Input() visitorsAmount: Visitors;
+
+  public valueAttributeImgAlt: string = 'photo';
   public articles = ARTICLES;
   public search: string = '';
+
   public toggleArticle(article: Article) {
     article.isVisible = !article.isVisible;
     article.buttonText = article.isVisible
       ? ButtonText.BUTTON_HIDE
       : ButtonText.BUTTON_SHOW;
+
     if (article.isVisible) {
       article.viewCounterArticle++;
     }
@@ -23,11 +28,10 @@ export class MainComponent {
 
   public toggleLikeButton(article: Article) {
     article.isLike = !article.isLike;
+    console.log(this.visitorsAmount);
   }
 
   public receptionEvent(search) {
     this.search = search;
   }
-
-  constructor(public localStorageServise: LocalStorageService) {}
 }

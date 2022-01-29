@@ -1,6 +1,6 @@
-<app-form (onAdd)="receptionEvent($event)"></app-form>
+<app-search (onAdd)="receptionEvent($event)"></app-search>
 <div class="article countViews { display: flex; justify-content: end; }">
-  <span>Сегодня посещено: {{ localStorageServise.views }}</span>
+  <span>Сегодня посещено: {{ visitorsAmount.amount }} </span>
 </div>
 <ul class="article article__wrapper">
   <li *ngFor="let article of articles | filter: search">
@@ -16,7 +16,11 @@
       class="article__picture"
       [ngClass]="{ 'article__picture--active': article.isVisible }"
     >
-      <img class="article__picture-img" [src]="article.img" alt="фото" />
+      <img
+        class="article__picture-img"
+        [src]="article.img"
+        [alt]="valueAttributeImgAlt"
+      />
     </div>
 
     <div class="article_footer article_footer__wrap">

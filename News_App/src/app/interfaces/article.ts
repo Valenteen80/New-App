@@ -1,4 +1,5 @@
-import { ButtonText } from './article-list';
+import { ButtonText } from '../article-list';
+
 export interface Article {
   title: string;
   headline: string;

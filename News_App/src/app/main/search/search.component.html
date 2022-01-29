@@ -1,15 +1,13 @@
 <div class="search">
-  <form class="search-form" action="">
-    <label class="search__label">
-      Поиск по сайту
-      <input
-        class="search__input-text"
-        type="text"
-        placeholder="Что ищите?..."
-        [(ngModel)]="search"
-        name="search"
-        (input)="outputEvent()"
-      />
-    </label>
-  </form>
+  <label class="search__label">
+    Поиск по сайту
+    <input
+      class="search__input-text"
+      type="text"
+      [placeholder]="placeholderValue"
+      [(ngModel)]="search"
+      name="search"
+      (input)="outputEvent()"
+    />
+  </label>
 </div>
