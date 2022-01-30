@@ -1,3 +1,7 @@
+// @import "_variables.scss";
+@import "../../assets/scss/_variables";
+@import "../../assets/scss/_mixins";
+
 .article {
   font-size: 1.2rem;
   list-style: none;
@@ -6,82 +10,85 @@
     margin: 20px 20px 0 20px;
   }
 
-  .article__headline {
+  &__headline {
     margin: 20px 0 0 0;
   }
 
-  .article__btn {
-    padding: 0;
+  &__btn {
     background-color: inherit;
     box-sizing: border-box;
-    border: none;
     font-size: 1.2rem;
+
+    padding: 0;
+    border: none;
     font-weight: bold;
-    color: #532703;
+    color: $brown;
     &:hover {
-      color: #c44615;
+      color: $orange;
       cursor: pointer;
     }
+  }
+
+  &__picture {
+    width: 20%;
+    @include flex_center;
+  }
+
+  &__picture-img {
+    max-width: 70%;
+    border: 3px solid $orange;
+  }
+
+  &__picture--active {
+    width: 100%;
+    @include flex_center;
   }
 
   .article-btn {
-    border: 1px solid #c45c07;
-    background-color: #f7e9d3;
+    border: 1px solid $orange;
+    background-color: $light_beige;
     border-radius: 25px;
     height: 30px;
     width: 100px;
-
     &:hover {
-      color: #c44615;
+      color: $orange;
       transition: 0.2s ease-in-out;
-      box-shadow: 2px -2px 25px rgb(231, 164, 126);
+      box-shadow: 2px -2px 25px $dark_beige;
       cursor: pointer;
     }
   }
 
-  .article-btn--active {
-    background-color: #f1c070;
-  }
-  .article-btn--active::before {
-    content: "♥";
-    font-size: 1rem;
-    color: #f80303;
-  }
-
-  .article__picture {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    .article__picture-img {
-      max-width: 70%;
-      border: 3px solid #753705;
-    }
-  }
-  .article__picture--active {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .article_footer {
+  &_footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &__wrap {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &__element {
+      margin: 20px 10px 0 10px;
+    }
+
+    .article-btn--active {
+      background-color: $dark_beige;
+    }
+
+    .article-btn--active::before {
+      content: "♥";
+      font-size: 1rem;
+      color: $red;
+    }
   }
-  .article_footer__wrap {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .article_footer__element {
-    margin: 20px 10px 0 10px;
+
+  .article__wrapper {
+    margin: 40px 40px 0 40px;
   }
 }
 
-.article__wrapper {
-  margin: 40px 40px 0 40px;
-}
 .countViews {
-  display: flex;
-  justify-content: end;
+  @include flex-end;
   padding-right: 40px;
 }

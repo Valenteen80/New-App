@@ -28,7 +28,6 @@ export class MainComponent {
 
   public toggleLikeButton(article: Article) {
     article.isLike = !article.isLike;
-    console.log(this.visitorsAmount);
   }
 
   public receptionEvent(search) {
