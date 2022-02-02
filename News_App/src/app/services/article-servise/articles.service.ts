@@ -20,7 +20,6 @@ export class ArticlesService {
     // this.http
     //   .post<Article[]>(this.apiUrl, this.article)
     //   .subscribe((response) => {
-    //     console.log(response);
     //   });
   }
 
