@@ -5,15 +5,16 @@ import { Article } from '../interfaces/article';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(articles: Article[], search: string = ''): Article[] {
+  transform(newArticles: Article[], search: string = ''): Article[] {
     if (!search.trim()) {
-      return articles;
+      return newArticles;
     }
-    return articles.filter((article: Article) => {
+
+    return newArticles.filter((newArticle: Article) => {
       return (
-        article.title.includes(search) ||
-        article.headline.includes(search) ||
-        article.body.includes(search)
+        newArticle.title.includes(search) ||
+        newArticle.description.includes(search) ||
+        newArticle.content.includes(search)
       );
     });
   }

@@ -3,42 +3,45 @@
   <span>Сегодня посещено: {{ visitorsAmount.amount }} </span>
 </div>
 <ul class="article article__wrapper">
-  <li *ngFor="let article of articles | filter: search">
-    <h2 class="article__header">{{ article.title }}</h2>
+  <li *ngFor="let newArticle of newArticles | filter: search">
+    <h2 class="article__header">{{ newArticle.title }}</h2>
     <p class="article__headline">
-      <strong>{{ article.headline }}</strong>
+      <strong>{{ newArticle.description }}</strong>
     </p>
-    <button class="article__btn" (click)="toggleArticle(article)">
-      {{ article.buttonText }}
+    <button class="article__btn" (click)="toggleArticle(newArticle)">
+      {{ newArticle.buttonText }}
     </button>
-    <p class="article__body" *ngIf="article.isVisible">{{ article.body }}</p>
+    <p class="article__body" *ngIf="newArticle.isVisible">
+      {{ newArticle.content }}
+    </p>
     <div
       class="article__picture"
-      [ngClass]="{ 'article__picture--active': article.isVisible }"
+      [ngClass]="{ 'article__picture--active': newArticle.isVisible }"
     >
       <img
         class="article__picture-img"
-        [src]="article.img"
+        [src]="newArticle.urlToImage"
         [alt]="valueAttributeImgAlt"
       />
     </div>
 
     <div class="article_footer article_footer__wrap">
       <div>
-        <span class="article_footer__element">{{ article.author }}</span>
+        <span class="article_footer__element">{{ newArticle.author }}</span>
         <button
           class="article-btn article-btn__wrapper article_footer__element"
-          (click)="toggleLikeButton(article)"
-          [ngClass]="{ 'article-btn--active': article.isLike }"
+          (click)="toggleLikeButton(newArticle)"
+          [ngClass]="{ 'article-btn--active': newArticle.isLike }"
         >
           Нравится
         </button>
       </div>
       <div>
         <small class="article_footer__element"
-          >Просмотрено:{{ article.viewCounterArticle }}</small
+          >Просмотрено:{{ newArticle.viewCounterArticle }}</small
         >
       </div>
     </div>
+    <div class="article-line"></div>
   </li>
 </ul>

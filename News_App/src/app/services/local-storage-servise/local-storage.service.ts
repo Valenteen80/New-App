@@ -1,5 +1,5 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Visitors } from '../interfaces/visitors';
+import { Injectable } from '@angular/core';
+import { Visitors } from '../../interfaces/visitors';
 
 @Injectable({
   providedIn: 'root',

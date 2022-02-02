@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './main/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     FormComponent,
     FilterPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
