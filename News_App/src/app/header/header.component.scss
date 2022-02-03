@@ -1,18 +1,29 @@
 @import "../../../src/assets/scss/colors";
+@import "../../../src/assets/scss/mixins";
 
 .header {
   display: flex;
   justify-content: space-around;
   background-color: $yellow;
   color: $brown;
+  @include mq-medium-up {
+    justify-content: center;
+  }
+
   .title {
     margin: 0;
     font-size: 2rem;
+    @include mq-medium-up {
+      font-size: 1.2rem;
+    }
   }
 
   .date {
     display: block;
     font-size: 2rem;
+    @include mq-medium-up {
+      font-size: 1.2rem;
+    }
   }
 }
 

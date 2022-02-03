@@ -1,9 +1,19 @@
 @import "../../../src/assets/scss/colors";
+@import "../../../src/assets/scss/mixins";
 
 .footer {
   font-size: 1.2rem;
-  margin: 10px 80px 10px 80px;
+  margin: 10px 40px 10px 40px;
   max-height: 30px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    @include mq-medium-up {
+      flex-direction: column;
+      align-items: center;
+      font-size: 1rem;
+    }
+  }
 }
 
 .line {

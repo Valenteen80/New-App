@@ -8,17 +8,28 @@
   &__header {
     font-size: 1.6rem;
     margin: 20px 20px 0 20px;
+    @include mq-small-up {
+      font-size: 1.1rem;
+    }
   }
 
   &__headline {
-    margin: 20px 0 0 0;
+    margin: 20px 20px 0 0;
+    @include mq-small-up {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__body {
+    @include mq-small-up {
+      font-size: 0.8rem;
+    }
   }
 
   &__btn {
     background-color: inherit;
     box-sizing: border-box;
     font-size: 1.2rem;
-
     padding: 0;
     border: none;
     font-weight: bold;
@@ -32,6 +43,12 @@
   &__picture {
     width: 20%;
     @include flex_center;
+    @include mq-medium-up {
+      width: 40%;
+    }
+    @include mq-small-up {
+      width: 40%;
+    }
   }
 
   &__picture-img {
@@ -61,6 +78,7 @@
   &_footer {
     width: 100%;
     display: flex;
+    font-size: 1rem;
     justify-content: space-between;
     align-items: center;
     &__wrap {
@@ -97,4 +115,7 @@
 .countViews {
   @include flex-end;
   padding-right: 40px;
+  @include mq-small-up {
+    font-size: 0.8rem;
+  }
 }

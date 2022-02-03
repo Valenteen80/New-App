@@ -1,3 +1,5 @@
+@import "../scss/screen-size";
+
 @mixin flex-end {
   display: flex;
   justify-content: end;
@@ -6,4 +8,16 @@
 @mixin flex_center {
   display: flex;
   justify-content: center;
+}
+
+@mixin mq-medium-up {
+  @media (max-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin mq-small-up {
+  @media (max-width: $screen-small) {
+    @content;
+  }
 }
