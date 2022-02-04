@@ -44,10 +44,10 @@
     width: 20%;
     @include flex_center;
     @include mq-medium-up {
-      width: 40%;
+      width: 60%;
     }
     @include mq-small-up {
-      width: 40%;
+      width: 100%;
     }
   }
 

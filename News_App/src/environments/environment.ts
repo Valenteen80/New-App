@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  newsapiUrl: 'https://newsapi.org/v2/everything?q=beekeeping',
+  newsapiUrl: 'https://newsapi.org/v2/everything',
   newsapiKey: 'apiKey=04f78d4ada5d4a9eacfdd743b00f37a4',
 };
 

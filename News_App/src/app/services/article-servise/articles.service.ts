@@ -1,41 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Article } from 'src/app/interfaces/article';
+import { NewsapiArticles } from 'src/app/interfaces/newsapi-articles';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArticlesService {
-  private apiUrl: string = `${environment.newsapiUrl}&${environment.newsapiKey} `;
+  private apiUrl: string = `${environment.newsapiUrl}?${environment.newsapiKey}`;
 
   constructor(private http: HttpClient) {}
 
-  public getArtiles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.apiUrl);
+  public getArticles(): Observable<Article[]> {
+    return this.http
+      .get<NewsapiArticles>(
+        `${this.apiUrl}&q=beekeeping&sortBy=publishedAt&pageSize=5`
+      )
+      .pipe(
+        map((response: NewsapiArticles) => {
+          return response.articles;
+        })
+      );
   }
 
-  public postArticle() {
-    // this.http
-    //   .post<Article[]>(this.apiUrl, this.article)
-    //   .subscribe((response) => {
-    //   });
+  public poseArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.apiUrl, article);
   }
 
-  public putArticle() {
-    // this.http
-    //   .put<Article[]>(this.apiUrl, this.article)
-    //   .subscribe((response) => {
-    //     console.log(response);
-    //   });
+  public putArticle(article: Article): Observable<Article> {
+    return this.http.put<Article>(this.apiUrl, article);
   }
 
-  public deleteArticle() {
-    this.http
-      .delete(`${environment.newsapiUrl}3${environment.newsapiKey}`)
-      .subscribe((resp) => {
-        console.log(resp);
-      });
+  public deleteArticle(article: Article): Observable<void> {
+    return this.http.delete<void>(this.apiUrl, article);
   }
 }

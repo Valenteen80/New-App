@@ -42,9 +42,10 @@ export class MainComponent implements OnInit {
   }
 
   private getNewArtiles(): void {
-    this.articlesService.getArtiles().subscribe((respons) => {
-      this.newArticles = respons['articles'];
-      this.newArticles.forEach(function (element) {
+    this.articlesService.getArticles().subscribe((respons) => {
+      console.log(respons);
+      this.newArticles = respons;
+      this.newArticles.forEach((element: Article) => {
         element.isVisible = false;
         element.viewCounterArticle = 0;
         element.buttonText = ButtonText.BUTTON_SHOW;
