@@ -10,6 +10,8 @@ import { FormComponent } from './main/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthenticationComponent } from './authentication/authentication.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +20,18 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     FormComponent,
     FilterPipe,
+    AuthenticationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    AuthModule.forRoot({
+      domain: 'news-ku.us.auth0.com',
+      clientId: 'Im7cyV3jv7oZxCAP4ZcwmtwVgeMgP59L',
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

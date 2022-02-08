@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../interfaces/article';
-import { ButtonText } from '../article-list';
+import { ButtonText } from '../enum';
 import { Visitors } from '../interfaces/visitors';
 import { ArticlesService } from '../services/article-servise/articles.service';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,10 @@ export class MainComponent implements OnInit {
   public search: string = '';
   public newArticles: Article[] = [];
 
-  constructor(public articlesService: ArticlesService) {}
+  constructor(
+    public articlesService: ArticlesService,
+    public auth: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.getNewArtiles();
@@ -43,7 +47,6 @@ export class MainComponent implements OnInit {
 
   private getNewArtiles(): void {
     this.articlesService.getArticles().subscribe((respons) => {
-      console.log(respons);
       this.newArticles = respons;
       this.newArticles.forEach((element: Article) => {
         element.isVisible = false;

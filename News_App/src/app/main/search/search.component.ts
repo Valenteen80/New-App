@@ -11,7 +11,7 @@ export class FormComponent {
 
   @Output() public onAdd: EventEmitter<string> = new EventEmitter();
 
-  outputEvent() {
+  public outputEvent(): void {
     this.onAdd.emit(this.search);
   }
 }
