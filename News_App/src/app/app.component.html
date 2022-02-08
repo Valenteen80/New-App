@@ -1,13 +1,9 @@
 <body class="main">
   <app-header class="main__header"></app-header>
+  <app-authentication class="main__auth"></app-authentication>
   <app-main
     [visitorsAmount]="currentVisitorsAmount"
     class="main__body"
   ></app-main>
   <app-footer class="main__footer"></app-footer>
 </body>
-<!-- <div *ngFor="let newArticle of newArticles">
-  <span>{{ newArticle.id }}</span>
-  <span>{{ newArticle.title }}</span>
-  <img class="article__picture-img" [src]="newArticle.urlToImage" [alt]="" />
-</div> -->

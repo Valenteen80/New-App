@@ -1,47 +1,48 @@
-<app-search (onAdd)="receptionEvent($event)"></app-search>
-<div class="article countViews">
-  <span>Сегодня посещено: {{ visitorsAmount.amount }} </span>
+<div *ngIf="auth.isAuthenticated$ | async">
+  <app-search (onAdd)="receptionEvent($event)"></app-search>
+  <div class="article countViews">
+    <span>Сегодня посещено: {{ visitorsAmount.amount }} </span>
+  </div>
+  <ul class="article article__wrapper">
+    <li *ngFor="let newArticle of newArticles | filter: search">
+      <h2 class="article__header">{{ newArticle.title }}</h2>
+      <p class="article__headline">
+        <strong>{{ newArticle.description }}</strong>
+      </p>
+      <button class="article__btn" (click)="toggleArticle(newArticle)">
+        {{ newArticle.buttonText }}
+      </button>
+      <p class="article__body" *ngIf="newArticle.isVisible">
+        {{ newArticle.content }}
+      </p>
+      <div
+        class="article__picture"
+        [ngClass]="{ 'article__picture--active': newArticle.isVisible }"
+      >
+        <img
+          class="article__picture-img"
+          [src]="newArticle.urlToImage"
+          [alt]="valueAttributeImgAlt"
+        />
+      </div>
+      <div class="article_footer article_footer__wrap">
+        <div>
+          <span class="article_footer__element">{{ newArticle.author }}</span>
+          <button
+            class="article-btn article-btn__wrapper article_footer__element"
+            (click)="toggleLikeButton(newArticle)"
+            [ngClass]="{ 'article-btn--active': newArticle.isLike }"
+          >
+            Нравится
+          </button>
+        </div>
+        <div>
+          <small class="article_footer__element"
+            >Просмотрено:{{ newArticle.viewCounterArticle }}</small
+          >
+        </div>
+      </div>
+      <div class="article-line"></div>
+    </li>
+  </ul>
 </div>
-<ul class="article article__wrapper">
-  <li *ngFor="let newArticle of newArticles | filter: search">
-    <h2 class="article__header">{{ newArticle.title }}</h2>
-    <p class="article__headline">
-      <strong>{{ newArticle.description }}</strong>
-    </p>
-    <button class="article__btn" (click)="toggleArticle(newArticle)">
-      {{ newArticle.buttonText }}
-    </button>
-    <p class="article__body" *ngIf="newArticle.isVisible">
-      {{ newArticle.content }}
-    </p>
-    <div
-      class="article__picture"
-      [ngClass]="{ 'article__picture--active': newArticle.isVisible }"
-    >
-      <img
-        class="article__picture-img"
-        [src]="newArticle.urlToImage"
-        [alt]="valueAttributeImgAlt"
-      />
-    </div>
-
-    <div class="article_footer article_footer__wrap">
-      <div>
-        <span class="article_footer__element">{{ newArticle.author }}</span>
-        <button
-          class="article-btn article-btn__wrapper article_footer__element"
-          (click)="toggleLikeButton(newArticle)"
-          [ngClass]="{ 'article-btn--active': newArticle.isLike }"
-        >
-          Нравится
-        </button>
-      </div>
-      <div>
-        <small class="article_footer__element"
-          >Просмотрено:{{ newArticle.viewCounterArticle }}</small
-        >
-      </div>
-    </div>
-    <div class="article-line"></div>
-  </li>
-</ul>

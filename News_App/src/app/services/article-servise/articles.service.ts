@@ -25,7 +25,7 @@ export class ArticlesService {
       );
   }
 
-  public poseArticle(article: Article): Observable<Article> {
+  public postArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(this.apiUrl, article);
   }
 
