@@ -9,10 +9,10 @@ import { Profile } from '../interfaces/profile';
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent implements OnInit {
-  constructor(public authService: AuthService) {}
-
   public profile: Profile = {};
   public valueAttributeAvatar: string = 'photo';
+
+  constructor(public authService: AuthService) {}
 
   @Output() public onAddAuth: EventEmitter<Profile> = new EventEmitter();
 
