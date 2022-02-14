@@ -8,6 +8,15 @@ export const environment = {
   newsapiKey: 'apiKey=04f78d4ada5d4a9eacfdd743b00f37a4',
 };
 
+export const environmentCredentials = {
+  production: false,
+  auth: {
+    domain: 'news-ku.us.auth0.com',
+    clientId: 'Im7cyV3jv7oZxCAP4ZcwmtwVgeMgP59L',
+    redirectUri: window.location.origin,
+  },
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,0 +1,18 @@
+<div class="auth auth__wrapper">
+  <div class="auth" *ngIf="profile">
+    <span class="auth__status"> Вы авторизованы как {{ profile.name }}</span>
+    <div>
+      <img
+        class="auth__img"
+        [src]="profile.picture"
+        [alt]="valueAttributeAvatar"
+      />
+    </div>
+  </div>
+  <div *ngIf="profile">
+    <button class="auth-btn" (click)="logout()">Выйти</button>
+  </div>
+  <div *ngIf="!profile">
+    <button class="auth-btn" (click)="loginRedirect()" #loggedOut>Войти</button>
+  </div>
+</div>

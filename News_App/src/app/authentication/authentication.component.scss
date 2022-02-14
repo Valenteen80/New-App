@@ -1,0 +1,40 @@
+@import "../../assets/scss/colors";
+@import "../../assets/scss/_mixins";
+
+.auth {
+  display: flex;
+  justify-content: end;
+  &__wrapper {
+    margin: 20px 40px 0 0;
+  }
+
+  &__img {
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__status {
+    margin-right: 10px;
+    font-size: 1.2rem;
+
+    @include mq-small-up {
+      font-size: 0.9rem;
+    }
+  }
+
+  &-btn {
+    border: 1px solid $orange;
+    background-color: $light_beige;
+    border-radius: 25px;
+    height: 30px;
+    width: 100px;
+
+    &:hover {
+      color: $orange;
+      transition: 0.2s ease-in-out;
+      box-shadow: 2px -2px 25px $dark_beige;
+      cursor: pointer;
+    }
+  }
+}

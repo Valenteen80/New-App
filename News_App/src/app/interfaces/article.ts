@@ -1,4 +1,4 @@
-import { ButtonText } from '../article-list';
+import { ButtonText } from '../enum';
 
 export interface Article {
   headline?: string;
