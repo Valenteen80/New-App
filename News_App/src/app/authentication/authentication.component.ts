@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { Observable } from 'rxjs';
 import { Profile } from '../interfaces/profile';
 
 @Component({
@@ -8,26 +9,37 @@ import { Profile } from '../interfaces/profile';
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   public profile: Profile = {};
-  public valueAttributeImgAlt: string = 'photo';
+  public valueAttributeAvatar: string = 'photo';
+
+  @Output() public onAddAuth: EventEmitter<Profile> = new EventEmitter();
 
   ngOnInit(): void {
-    this.getProfile();
+    this.useProfile();
   }
 
   public loginRedirect(): void {
-    this.auth.loginWithRedirect();
+    this.authService.loginWithRedirect();
   }
 
   public logout(): void {
-    this.auth.logout();
+    this.authService.logout();
   }
 
-  public getProfile(): void {
-    this.auth.user$.subscribe((profile) => {
+  public getProfile(): Observable<Profile> {
+    return this.authService.user$;
+  }
+
+  public useProfile(): void {
+    this.getProfile().subscribe((profile) => {
       this.profile = profile;
+      this.inputEvent();
     });
+  }
+
+  public inputEvent(): void {
+    this.onAddAuth.emit(this.profile);
   }
 }

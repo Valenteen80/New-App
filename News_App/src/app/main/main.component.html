@@ -1,5 +1,6 @@
-<div *ngIf="auth.isAuthenticated$ | async">
-  <app-search (onAdd)="receptionEvent($event)"></app-search>
+<app-authentication (onAddAuth)="authEvent($event)"></app-authentication>
+<div *ngIf="profile">
+  <app-search (onAddSearch)="searchEvent($event)"></app-search>
   <div class="article countViews">
     <span>Сегодня посещено: {{ visitorsAmount.amount }} </span>
   </div>

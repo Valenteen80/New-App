@@ -4,6 +4,7 @@ import { ButtonText } from '../enum';
 import { Visitors } from '../interfaces/visitors';
 import { ArticlesService } from '../services/article-servise/articles.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { Profile } from '../interfaces/profile';
 
 @Component({
   selector: 'app-main',
@@ -16,10 +17,11 @@ export class MainComponent implements OnInit {
   public valueAttributeImgAlt: string = 'photo';
   public search: string = '';
   public newArticles: Article[] = [];
+  public profile: Profile = {};
 
   constructor(
     public articlesService: ArticlesService,
-    public auth: AuthService
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +43,12 @@ export class MainComponent implements OnInit {
     newArticle.isLike = !newArticle.isLike;
   }
 
-  public receptionEvent(search): void {
+  public searchEvent(search): void {
     this.search = search;
+  }
+
+  public authEvent(event): void {
+    this.profile = event;
   }
 
   private getNewArtiles(): void {

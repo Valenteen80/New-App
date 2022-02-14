@@ -12,6 +12,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from '@auth0/auth0-angular';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { environmentCredentials as env } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +29,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     FormsModule,
     HttpClientModule,
     AuthModule.forRoot({
-      domain: 'news-ku.us.auth0.com',
-      clientId: 'Im7cyV3jv7oZxCAP4ZcwmtwVgeMgP59L',
+      ...env.auth,
     }),
   ],
   providers: [],

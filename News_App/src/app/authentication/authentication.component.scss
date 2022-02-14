@@ -17,6 +17,7 @@
   &__status {
     margin-right: 10px;
     font-size: 1.2rem;
+
     @include mq-small-up {
       font-size: 0.9rem;
     }
@@ -28,6 +29,7 @@
     border-radius: 25px;
     height: 30px;
     width: 100px;
+
     &:hover {
       color: $orange;
       transition: 0.2s ease-in-out;

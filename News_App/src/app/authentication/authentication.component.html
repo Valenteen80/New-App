@@ -1,18 +1,18 @@
 <div class="auth auth__wrapper">
-  <div class="auth" *ngIf="auth.user$ | async as user">
+  <div class="auth" *ngIf="profile">
     <span class="auth__status"> Вы авторизованы как {{ profile.name }}</span>
     <div>
       <img
         class="auth__img"
         [src]="profile.picture"
-        [alt]="valueAttributeImgAlt"
+        [alt]="valueAttributeAvatar"
       />
     </div>
   </div>
-  <div *ngIf="auth.isAuthenticated$ | async">
+  <div *ngIf="profile">
     <button class="auth-btn" (click)="logout()">Выйти</button>
   </div>
-  <div *ngIf="(auth.isAuthenticated$ | async) === false">
+  <div *ngIf="!profile">
     <button class="auth-btn" (click)="loginRedirect()" #loggedOut>Войти</button>
   </div>
 </div>

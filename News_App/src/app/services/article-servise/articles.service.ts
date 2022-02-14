@@ -25,7 +25,7 @@ export class ArticlesService {
       );
   }
 
-  public postArticle(article: Article): Observable<Article> {
+  public createArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(this.apiUrl, article);
   }
 
